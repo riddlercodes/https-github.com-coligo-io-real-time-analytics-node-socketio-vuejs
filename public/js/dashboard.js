@@ -8,14 +8,8 @@ var vm = new Vue({
 		activeUsers: 0
   },
   created: function() {
-    socket.on('visitor-data', function(data) {
+    socket.on('updated-stats', function(data) {
 			this.pages = data.pages;
-			this.referrers = data.referrers;
-			this.activeUsers = data.activeUsers;
-    }.bind(this));
-
-    socket.on('exit', function(data) {
-      this.pages = data.pages;
 			this.referrers = data.referrers;
 			this.activeUsers = data.activeUsers;
     }.bind(this));
